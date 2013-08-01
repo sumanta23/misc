@@ -1,0 +1,15 @@
+import os
+import subprocess
+
+os.system("ls -all")
+
+f = os.popen('date')
+now = f.read()
+print "Today is ", now
+
+subprocess.call("pwd")
+subprocess.call(["ls", "-all"])
+
+p = subprocess.Popen("date", stdout=subprocess.PIPE, shell=True)
+(output, err) = p.communicate()
+print "Today is", output
