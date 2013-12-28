@@ -5,12 +5,12 @@ import sys
 def main():
 	list=[1,2,3,4,5,6,7,8,9,0]
 	print list[3:5]
-	list[3]="EBA"
+	list[3]="sumanta"
 	print list[0:]
 	print list*2
 	list=list*2
 	print list
-	list=list+["ossrc"]
+	list=list+["nandi"]
 	print list
 # Command line args are in sys.argv[1], sys.argv[2] ...    
 # sys.argv[0] is the script name itself and can be ignored
