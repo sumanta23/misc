@@ -82,6 +82,7 @@ public class TabbedPaneDemo extends JPanel {
      */
     public static void createAndShowGUI() {
         //Create and set up the window.
+        JFrame.setDefaultLookAndFeelDecorated(true);
         JFrame frame = new JFrame("TabbedPaneDemo");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         
