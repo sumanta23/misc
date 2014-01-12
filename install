@@ -1,0 +1,8 @@
+#!/usr/bin/bash
+
+ant
+mkdir -p /opt/sw/terminal/
+cp bin/jar/Terminal.jar  /opt/sw/terminal/
+cp terminal /usr/local/bin/
+chmod +x /usr/local/bin/terminal
+

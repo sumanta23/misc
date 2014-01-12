@@ -1,0 +1,3 @@
+#!/usr/bin/bash
+
+java -jar /opt/sw/terminal/Terminal.jar
