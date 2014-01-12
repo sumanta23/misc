@@ -156,7 +156,7 @@ public class TabbedPane extends JPanel implements ActionListener {
         
     	
     	JFrame.setDefaultLookAndFeelDecorated(true);
-        JFrame frame = new JFrame("TabbedPaneDemo");
+        JFrame frame = new JFrame("Terminal");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         
         frame.add(mb,BorderLayout.NORTH);
