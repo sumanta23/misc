@@ -2,8 +2,7 @@ package org.sumanta.main;
 
 import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
-
-import org.sumanta.gui.TabbedPaneDemo;
+import org.sumanta.gui.TabbedPane;
 
 public class Main {
 	public static void main(String[] args) {
@@ -13,7 +12,7 @@ public class Main {
             public void run() {
                 //Turn off metal's use of bold fonts
 		UIManager.put("swing.boldMetal", Boolean.FALSE);
-		TabbedPaneDemo.createAndShowGUI();
+		TabbedPane.createAndShowGUI();
             }
         });
     }
