@@ -1,6 +1,6 @@
-#!/usr/bin/bash
+#!/bin/bash
 
-ant
+ant jar
 mkdir -p /opt/sw/terminal/
 cp bin/jar/Terminal.jar  /opt/sw/terminal/
 cp terminal /usr/local/bin/
