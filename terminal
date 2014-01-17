@@ -1,3 +1,59 @@
 #!/bin/bash
 
-java -jar /opt/sw/terminal/Terminal.jar
+JAVA_HOME="/usr/java/jdk1.7.0_05"
+
+##################
+# PATH
+##################
+PATH=$PATH
+
+##################
+# CLASSPATH
+##################
+CLASSPATH=${CLASSPATH}:/opt/sw/terminal/Terminal.jar
+#CLASSPATH=${CLASSPATH}:/opt/lib/mysql-connector-java-5.1.16-bin.jar
+#CLASSPATH=${CLASSPATH}:/opt/lib/log4j-1.2.16.jar
+#CLASSPATH=${CLASSPATH}:/opt/conf
+
+
+##################
+# JAVAFLAGS
+##################
+#JAVAFLAGS="${JAVAFLAGS} -Xmx1g"
+#JAVAFLAGS="${JAVAFLAGS} -Djava.util.logging.config.file"
+
+
+##################
+# LD_LIBRARY_PATH
+##################
+#LD_LIBRARY_PATH="/opt/ericsson/cadm/lib/`/usr/bin/uname -p`"
+#export LD_LIBRARY_PATH
+
+##################
+# REMOTEDEBUG
+REMOTEDEBUG_S="-Xdebug -Xrunjdwp:transport=dt_socket,address=8002,server=y,suspend=y"
+REMOTEDEBUG_NS="-Xdebug -Xrunjdwp:transport=dt_socket,address=8002,server=y,suspend=n"
+##################
+
+# Set umask for able to write log for different users into the same log file
+umask 0777
+
+##################
+# MAIN class
+##################
+if [ -z "${MAIN}" ]; then
+  case "`basename $0`" in
+    terminal)
+    MAIN=org.sumanta.main.Main
+    #JAVAFLAGS="$REMOTEDEBUG_S $JAVAFLAGS"
+    ;;
+    *) echo "Could not determine MAIN class" >&2; exit 2
+  esac
+fi
+
+##################
+# Launch
+##################
+exec "${JAVA_HOME}/bin/java" -cp "${CLASSPATH}" ${JAVAFLAGS} "${MAIN}" ${ARG} "$@"
+
+#java -jar /opt/sw/terminal/Terminal.jar
