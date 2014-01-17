@@ -89,10 +89,15 @@ public class TabbedPane extends JPanel implements ActionListener {
     	{
     		LoginPanel lp=new LoginPanel();
     		int size=tabdetails.size();
-            	int lastaddedid=((TabDetails)tabdetails.get(size-1)).getId();
-            	tabdetails.add(new TabDetails(lastaddedid+1,lp,new JMenuItem("Close Tab "+(1+lastaddedid))));
-            	tabbedPane.addTab("Tab "+(lastaddedid+1), icon, lp, "new dynamic tab");
-    		
+		if(size!=0){
+            		int lastaddedid=((TabDetails)tabdetails.get(size-1)).getId();
+            		tabdetails.add(new TabDetails(lastaddedid+1,lp,new JMenuItem("Close Tab "+(1+lastaddedid))));
+            		tabbedPane.addTab("Tab "+(lastaddedid+1), icon, lp, "new dynamic tab");
+    		}
+		else{
+			tabdetails.add(new TabDetails(1,lp,new JMenuItem("Close Tab "+1)));
+                	tabbedPane.addTab("Tab "+1, icon, lp, "new dynamic tab");
+            	}
     		closetab.add(((TabDetails)tabdetails.get(size)).getJm());
     		((TabDetails)tabdetails.get(size)).getJm().addActionListener(this);
     	}
