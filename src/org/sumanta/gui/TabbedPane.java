@@ -19,6 +19,7 @@ import javax.swing.UIManager;
 
 import org.sumanta.gui.panel.LoginPanel;
 import org.sumanta.util.TabDetails;
+import org.sumanta.resources.CreateImageIcon;
 
 import java.awt.BorderLayout;
 import java.awt.Component;
@@ -49,7 +50,8 @@ public class TabbedPane extends JPanel implements ActionListener {
     private static JMenuItem paste=new JMenuItem("Paste");
 	
     JTabbedPane tabbedPane = new JTabbedPane();
-    ImageIcon icon = createImageIcon("terminal.gif");
+    CreateImageIcon cii=new CreateImageIcon();
+    ImageIcon icon = cii.createImageIcon("terminal.gif");
     
     public TabbedPane() {
         super(new GridLayout(1, 1));
@@ -130,16 +132,6 @@ public class TabbedPane extends JPanel implements ActionListener {
         return panel;
     }*/
     
-    /** Returns an ImageIcon, or null if the path was invalid. */
-    public static ImageIcon createImageIcon(String path) {
-        java.net.URL imgURL = TabbedPane.class.getResource(path);
-        if (imgURL != null) {
-            return new ImageIcon(imgURL);
-        } else {
-            System.err.println("Couldn't find file: " + path);
-            return null;
-        }
-    }
     
     
     /**

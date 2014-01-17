@@ -32,9 +32,9 @@
 
     <target name="compile">
         <mkdir dir="${classes.dir}"/>
-        <javac srcdir="${src.dir}" destdir="${classes.dir}" classpathref="build.classpath">
+        <javac srcdir="${src.dir}" destdir="${classes.dir}" classpathref="build.classpath" />
                 <!--classpath refid="lib.class.path" /-->
-                </javac>
+		<copy file="src/org/sumanta/resources/terminal.gif" todir="bin/classes/org/sumanta/resources/" />
     </target>
 
         <target name="jarlib">
