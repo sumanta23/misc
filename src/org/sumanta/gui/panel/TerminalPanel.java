@@ -1,5 +1,9 @@
 package org.sumanta.gui.panel;
 
+import java.awt.Panel;
+import javax.swing.JLabel;
+import javax.swing.JScrollPane;
+
 public class TerminalPanel extends Panel {
 
 	public TerminalPanel() {
