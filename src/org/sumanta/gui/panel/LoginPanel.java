@@ -45,6 +45,17 @@ public class LoginPanel extends JPanel{
 		this.add(passwordLabel);
 		this.add(passWord);
 		this.add(submit);
+		
+		submit.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				TerminalPanel tp=new TerminalPanel();
+				int in=TabbedPane.tabbedPane.getSelectedIndex();
+				TabbedPane.tabbedPane.setComponentAt(in, tp);
+				
+			}
+		});
 	}
 	
 }
