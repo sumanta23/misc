@@ -3,6 +3,7 @@ package org.sumanta.gui.panel;
 import java.awt.Panel;
 import javax.swing.JLabel;
 import javax.swing.JScrollPane;
+import org.sumanta.gui.TabbedPane;
 
 public class TerminalPanel extends Panel {
 
