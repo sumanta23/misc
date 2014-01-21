@@ -5,6 +5,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
+import org.sumanta.gui.TabbedPane;
 
 public class LoginPanel extends JPanel{
 
