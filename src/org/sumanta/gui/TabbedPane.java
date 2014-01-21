@@ -49,7 +49,7 @@ public class TabbedPane extends JPanel implements ActionListener {
     private static JMenuItem copy=new JMenuItem("Copy");
     private static JMenuItem paste=new JMenuItem("Paste");
 	
-    JTabbedPane tabbedPane = new JTabbedPane();
+    public static JTabbedPane tabbedPane = new JTabbedPane();
     CreateImageIcon cii=new CreateImageIcon();
     ImageIcon icon = cii.createImageIcon("terminal.gif");
     
