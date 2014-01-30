@@ -11,9 +11,11 @@ PATH=$PATH
 # CLASSPATH
 ##################
 CLASSPATH=${CLASSPATH}:/opt/sw/terminal/Terminal.jar
-#CLASSPATH=${CLASSPATH}:/opt/lib/mysql-connector-java-5.1.16-bin.jar
-#CLASSPATH=${CLASSPATH}:/opt/lib/log4j-1.2.16.jar
-#CLASSPATH=${CLASSPATH}:/opt/conf
+CLASSPATH=${CLASSPATH}:/opt/sw/terminal/lib/commons-logging.jar
+CLASSPATH=${CLASSPATH}:/opt/sw/terminal/lib/j2ssh-common-0.2.9.jar
+CLASSPATH=${CLASSPATH}:/opt/sw/terminal/lib/j2ssh-core-0.2.9.jar
+CLASSPATH=${CLASSPATH}:/opt/sw/terminal/lib/jce-jdk13-119.jar
+CLASSPATH=${CLASSPATH}:/opt/sw/terminal/lib/jcifs-1.3.17.jar
 
 
 ##################
