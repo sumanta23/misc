@@ -8,6 +8,7 @@ import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import org.sumanta.gui.TabbedPane;
+import org.sumanta.util.ssh.SshApi;
 
 public class LoginPanel extends JPanel{
 
