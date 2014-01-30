@@ -3,6 +3,7 @@
 ant jar
 mkdir -p /opt/sw/terminal/
 cp bin/jar/Terminal.jar  /opt/sw/terminal/
+cp lib/*.jar  /opt/sw/terminal/lib/
 cp terminal /usr/local/bin/
 cp terminal.desktop /usr/share/applications/
 cp xterm.xpm /opt/sw/terminal/xterm.xpm
