@@ -5,6 +5,6 @@ mkdir -p /opt/sw/terminal/
 cp bin/jar/Terminal.jar  /opt/sw/terminal/
 cp terminal /usr/local/bin/
 cp terminal.desktop /usr/share/applications/
-cp src/org/sumanta/resources/terminal.gif /opt/sw/terminal/terminal.gif
+cp xterm.xpm /opt/sw/terminal/xterm.xpm
 chmod +x /usr/local/bin/terminal
 ant clean
