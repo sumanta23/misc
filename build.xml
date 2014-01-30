@@ -1,0 +1,67 @@
+<project name="filedesc" basedir="." default="main">
+
+    <property name="src.dir"     value="src"/>
+    <property name="lib.dir"     value="lib"/>
+    <property name="build.dir"   value="bin"/>
+    <property name="classes.dir" value="${build.dir}/classes"/>
+    <property name="jar.dir"     value="${build.dir}/jar"/>
+
+    <property name="main-class"  value="Main"/>
+
+
+    <path id="build.classpath">
+    <fileset dir="${lib.dir}">
+      <include name="*.jar" />
+    </fileset>
+    </path>
+
+        <!--path id="junit.class.path">
+    <pathelement location="lib/junit.jar" />
+    <pathelement location="${build.dir}" />
+        </path-->
+
+        
+
+
+
+
+
+    <target name="clean">
+        <delete dir="${build.dir}"/>
+    </target>
+
+    <target name="compile">
+        <mkdir dir="${classes.dir}"/>
+        <javac srcdir="${src.dir}" destdir="${classes.dir}" classpathref="build.classpath" />
+                <!--classpath refid="lib.class.path" /-->
+    </target>
+
+        <target name="jarlib">
+                <mkdir dir="${jar.dir}"/>
+                <manifestclasspath property="lib.list" jarfile="${jar.dir}/${ant.project.name}.jar">
+                                <classpath refid="build.classpath"/>
+                </manifestclasspath>
+        </target>
+        
+    <target name="jar" depends="jarlib,compile">
+        <!--mkdir dir="${jar.dir}"/-->
+        <jar destfile="${jar.dir}/${ant.project.name}.jar" basedir="${classes.dir}">
+            <manifest>
+                <attribute name="Main-Class" value="${main-class}"/>
+                                <attribute name="Class-Path" value="${lib.list}"/>
+            </manifest>
+        </jar>
+    </target>
+
+    <target name="run" depends="jar">
+        <java jar="${jar.dir}/${ant.project.name}.jar" fork="true">
+                <classpath refid="build.classpath" />
+                </java>
+    </target>
+
+    <target name="clean-build" depends="clean,jar"/>
+
+    <target name="main" depends="clean,run"/>
+
+</project>
+
