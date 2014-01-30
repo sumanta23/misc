@@ -4,5 +4,6 @@ ant jar
 mkdir -p /opt/sw/terminal/
 cp bin/jar/Terminal.jar  /opt/sw/terminal/
 cp terminal /usr/local/bin/
+cp eclipse.desktop /usr/share/applications/
 chmod +x /usr/local/bin/terminal
 
