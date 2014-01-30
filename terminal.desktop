@@ -1,16 +1,9 @@
 [Desktop Entry]
 Encoding=UTF-8
-<<<<<<< HEAD
 Name=Terminal
 Comment=Platform Independent Putty
 Exec=terminal
-Icon=/opt/eclipse/icon.xpm
-=======
-Name=Eclipse
-Comment=Eclipse IDE
-Exec=eclipse
-Icon=/opt/sw/terminal/icon.xpm
->>>>>>> f82ab31461d4df6b4643d9ef8b72e7a27a791d2d
+Icon=/opt/sw/terminal/xterm.xpm
 Terminal=false
 Type=Application
 Categories=GNOME;Application;Development;
