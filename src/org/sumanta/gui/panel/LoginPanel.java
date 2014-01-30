@@ -53,7 +53,13 @@ public class LoginPanel extends JPanel{
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				TerminalPanel tp=new TerminalPanel();
+				SshApi ssh=new SshApi();
+				try {
+					ssh.connect(url.getText(), userName.getText(), passWord.getText());
+				} catch (Exception e1) {
+					e1.printStackTrace();
+				}
+				TerminalPanel tp=new TerminalPanel(ssh);
 				int in=TabbedPane.tabbedPane.getSelectedIndex();
 				TabbedPane.tabbedPane.setComponentAt(in, tp);
 				
