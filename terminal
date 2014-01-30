@@ -26,7 +26,7 @@ CLASSPATH=${CLASSPATH}:/opt/sw/terminal/Terminal.jar
 ##################
 # LD_LIBRARY_PATH
 ##################
-#LD_LIBRARY_PATH="/opt/ericsson/cadm/lib/`/usr/bin/uname -p`"
+#LD_LIBRARY_PATH="/opt/lib/`/usr/bin/uname -p`"
 #export LD_LIBRARY_PATH
 
 ##################
