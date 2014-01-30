@@ -1,8 +1,8 @@
 [Desktop Entry]
 Encoding=UTF-8
-Name=Eclipse
-Comment=Eclipse IDE
-Exec=eclipse
+Name=Terminal
+Comment=Platform Independent Putty
+Exec=terminal
 Icon=/opt/eclipse/icon.xpm
 Terminal=false
 Type=Application
