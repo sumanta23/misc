@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+
+<project name="myEAR" default="ear" basedir=".">
+
+	<import file="../myEAPEJB/build.xml"/>
+	<import file="../myEAPWeb/build.xml"/>
+	
+	<target name="ear">
+		<ear destfile="${ant.project.name}.ear" appxml="EarContent\META-INF\application.xml">
+			<fileset dir="../myEAPEJB/${ear.dir}" includes="*.jar" />
+			<fileset dir="../myEAPWeb/${war.dir}" includes="*.war" />
+		</ear>
+	</target>
+
+</project>
