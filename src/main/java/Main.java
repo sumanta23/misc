@@ -25,6 +25,7 @@ public class Main {
 	    	EntityTransaction entr=em.getTransaction();
 	    	dao d=new dao();
 	    	
+            d.add(em,entr,new Customer(2, "o", "i"));
 	    	d.add(em,entr,new Customer(3, "o", "u"));
 	    	
 	    	d.delete(em,entr,new Customer(3, "o", "u"));
@@ -49,6 +50,7 @@ public class Main {
 	    	}
 	    	finally{
 	    	em.close();
+            factory.close();
 	    	}
 	    	}
 	    	}
