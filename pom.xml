@@ -24,6 +24,11 @@
       <version>3.8.1</version>
       <scope>test</scope>
     </dependency>
+    <dependency>
+        <groupId>org.slf4j</groupId>
+        <artifactId>slf4j-simple</artifactId>
+        <version>1.7.7</version>
+    </dependency>
   </dependencies>
   
   
@@ -55,5 +60,29 @@
       </plugin>
     </plugins>
   </build>
+  
+  
+  
+  <reporting>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-pmd-plugin</artifactId>
+        <version>3.3</version>
+        <configuration>
+          <rulesets>
+            <!-- Two rule sets that come bundled with PMD -->
+            <ruleset>/rulesets/java/braces.xml</ruleset>
+            <ruleset>/rulesets/java/naming.xml</ruleset>
+            <!-- Custom local file system rule set -->
+            <ruleset>C:\Users\tcsnasu\ENMSOFTWARE\settings\pmdrule\PMD_rules.xml</ruleset>
+            <!-- Custom remote rule set accessed via a URL -->
+            <!--<ruleset>http://localhost/design.xml</ruleset>-->
+          </rulesets>
+        </configuration>
+      </plugin>
+    </plugins>
+  </reporting>
+  
   
 </project>
