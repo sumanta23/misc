@@ -3,7 +3,6 @@ package model;
 import java.io.Serializable;
 import javax.persistence.*;
 
-
 /**
  * The persistent class for the customer database table.
  * 
@@ -13,7 +12,7 @@ public class Customer implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
 
 	private String name;
@@ -23,12 +22,12 @@ public class Customer implements Serializable {
 	public Customer() {
 	}
 
-	public Customer(int id,String name,String surname)
-	{
+	public Customer(int id, String name, String surname) {
 		setId(id);
 		setName(name);
 		setSurname(surname);
 	}
+
 	public int getId() {
 		return this.id;
 	}
