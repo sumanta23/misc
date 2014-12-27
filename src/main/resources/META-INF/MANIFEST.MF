@@ -1,0 +1,4 @@
+Manifest-Version: 1.0
+Class-Path: freetts-1.0.jar cmu_time_awb-1.0.jar cmulex-1.0.jar cmu_us
+ _kal-1.0.jar cmutimelex-1.0.jar en_us-1.0.jar
+
