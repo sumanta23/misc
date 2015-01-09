@@ -19,6 +19,8 @@
 		<version.maven-pmd>3.3</version.maven-pmd>
         <version.checkstyle>2.13</version.checkstyle>
         <version.findbugs>3.0.0</version.findbugs>
+        <version.javadoc>2.10.1</version.javadoc>
+        <version.cobertura>2.6</version.cobertura>
 	</properties>
 
 	<dependencies>
@@ -136,8 +138,13 @@
             <plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-javadoc-plugin</artifactId>
-                <version>2.10.1</version>
+                <version>${version.javadoc}</version>
 			</plugin>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>cobertura-maven-plugin</artifactId>
+                <version>${version.cobertura}</version>
+            </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-checkstyle-plugin</artifactId>
