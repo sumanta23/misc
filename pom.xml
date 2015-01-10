@@ -22,7 +22,7 @@
         <version.findbugs>3.0.0</version.findbugs>
         <version.javadoc>2.10.1</version.javadoc>
         <version.cobertura>2.6</version.cobertura>
-        
+        <version.rpm>2.1.1<version.rpm>
 	</properties>
 
 	<dependencies>
