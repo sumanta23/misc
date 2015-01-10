@@ -13,6 +13,7 @@
 		<encoding>UTF-8</encoding>
 		<version.java>1.7</version.java>
 		<version.maven-compiler>3.1</version.maven-compiler>
+		<version.maven-exec>1.3.2</version.maven-exec>
 		<version.eclipse-plugin>2.9</version.eclipse-plugin>
 		<version.eclipse-wtp>2.0</version.eclipse-wtp>
 		<version.junit-reporting>2.18</version.junit-reporting>
@@ -21,6 +22,7 @@
         <version.findbugs>3.0.0</version.findbugs>
         <version.javadoc>2.10.1</version.javadoc>
         <version.cobertura>2.6</version.cobertura>
+        
 	</properties>
 
 	<dependencies>
@@ -59,8 +61,26 @@
 			<plugin>
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>exec-maven-plugin</artifactId>
-				<version>1.3.2</version>
+				<version>${version.maven-exec}</version>
 			</plugin>
+			 <plugin>
+		                <groupId>org.codehaus.mojo</groupId>
+		                <artifactId>rpm-maven-plugin</artifactId>
+		                <version>${version.rpm}</version>
+		                <extensions>true</extensions>
+		                <executions>
+		                    <execution>
+		                        <id>generate-rpm</id>
+		                        <goals>
+		                            <goal>rpm</goal>
+		                        </goals>
+		                    </execution>
+		                </executions>
+		                <configuration>
+		                     <group>Application/Collectors</group>
+		                     <sourceEncoding>UTF-8</sourceEncoding>
+		                </configuration>
+		        </plugin>
 		</plugins>
 	</build>
 
