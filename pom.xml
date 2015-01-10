@@ -32,6 +32,18 @@
 			<version>4.4</version>
 			<scope>test</scope>
 		</dependency>
+		<dependency>
+			<groupId>org.easymock</groupId>
+			<artifactId>easymock</artifactId>
+			<version>3.1</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.mockito</groupId>
+			<artifactId>mockito-all</artifactId>
+			<version>1.9.5</version>
+			<scope>test</scope>
+		</dependency>
 	</dependencies>
 
 	<build>
@@ -70,26 +82,26 @@
 		<profile>
 	 	<id>rpm</id>
 	 	   <build>
-	                <plugins>
-	                <plugin>
-	                    <groupId>org.codehaus.mojo</groupId>
-	                    <artifactId>rpm-maven-plugin</artifactId>
-	                    <version>${version.rpm}</version>
-	                    <extensions>true</extensions>
-	                    <executions>
-	                        <execution>
-	                            <id>generate-rpm</id>
-	                            <goals>
-	                                <goal>rpm</goal>
-	                            </goals>
-	                        </execution>
-	                    </executions>
-	                    <configuration>
-	                        <group>Application/Collectors</group>
-	                        <sourceEncoding>UTF-8</sourceEncoding>
-	                    </configuration>
-	                </plugin>
-	                </plugins>
+                <plugins>
+                <plugin>
+                    <groupId>org.codehaus.mojo</groupId>
+                    <artifactId>rpm-maven-plugin</artifactId>
+                    <version>${version.rpm}</version>
+                    <extensions>true</extensions>
+                    <executions>
+                        <execution>
+                            <id>generate-rpm</id>
+                            <goals>
+                                <goal>rpm</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                    <configuration>
+                        <group>Application/Collectors</group>
+                        <sourceEncoding>UTF-8</sourceEncoding>
+                    </configuration>
+                </plugin>
+                </plugins>
 	 	   </build>
 	 	</profile>
 		<profile>

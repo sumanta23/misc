@@ -2,6 +2,7 @@ package org.sumanta.client;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -78,7 +79,12 @@ public class ClientGui {
 					if(!(serverAddress.getText().length()==0) && !(chatClient.getText().length()==0))
 					{
 						
-						final boolean res=WebPing.ping(serverAddress.getText(), 25000);
+						boolean res = false;
+						try {
+							res = WebPing.ping(serverAddress.getText(), 25000);
+						} catch (IOException e1) {
+							e1.printStackTrace();
+						}
 						if(res)
 						{
 							chatHistory.setText(chatHistory.getText()+"\n"

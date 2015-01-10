@@ -7,7 +7,7 @@ import java.net.Socket;
 public class WebPing {
 	static InetAddress addr;
 	static boolean flag=false;
-   public static boolean ping(final String address,final int port) {
+   public static boolean ping(final String address,final int port) throws IOException {
       try {
          final Socket sock = new Socket(address,port);
          addr = sock.getInetAddress();
@@ -17,7 +17,7 @@ public class WebPing {
          
       } catch (final IOException e) {
          System.out.println("Can't connect to " + addr);
-         System.out.println(e);
+         throw e;
       }
 	return flag;
    }
