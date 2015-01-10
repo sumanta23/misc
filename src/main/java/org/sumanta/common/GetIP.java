@@ -4,7 +4,7 @@ import java.net.InetAddress;
 import java.net.UnknownHostException;
 
 public class GetIP {
-   public static void main(String[] args) {
+   public static void main(final String[] args) {
       InetAddress address = null;
       try {
          address = InetAddress.getByName

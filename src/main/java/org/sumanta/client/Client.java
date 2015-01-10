@@ -1,35 +1,30 @@
 package org.sumanta.client;
 
-import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.net.InetAddress;
 import java.net.Socket;
-import java.net.UnknownHostException;
-import java.io.*;
  
 public class Client 
 {
  
     static Socket socket;
     
-    public static void sendClientRequest(String host,String msg) {
+    public static void sendClientRequest(final String host, final String msg) {
     	OutputStream os;
 		try {
 			bind(host);
 			os = socket.getOutputStream();
-			OutputStreamWriter osw = new OutputStreamWriter(os);
-	        BufferedWriter bw = new BufferedWriter(osw);
+			final OutputStreamWriter osw = new OutputStreamWriter(os);
+	        final BufferedWriter bw = new BufferedWriter(osw);
 
-	        String sendMessage = msg + "\n";
+	        final String sendMessage = msg + "\n";
 	        bw.write(sendMessage);
 	        bw.flush();
 	        System.out.println("Message sent to the server : "+sendMessage);
-		} catch (IOException e) {
+		} catch (final IOException e) {
 			System.out.println(e.getMessage());
 			e.printStackTrace();
 			unBind();
@@ -38,15 +33,15 @@ public class Client
 	}
     
     
-    public static Socket bind(String host)
+    public static Socket bind(final String host)
     {
     	
 		try {
-			int port = 25000;
+			final int port = 25000;
 	        InetAddress address;
 			address = InetAddress.getByName(host);
 			socket = new Socket(address, port);
-		} catch (Exception e) {
+		} catch (final Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
@@ -68,7 +63,7 @@ public class Client
     }
     
     
-    public static void main(String args[])
+    public static void main(final String args[])
     {
         try
         {
@@ -77,17 +72,17 @@ public class Client
 			System.out.print("Enter Server Adress:");
 			String host =dis.readLine();*/
             host = "127.0.0.1";
-            int port = 25000;
-            InetAddress address = InetAddress.getByName(host);
+            final  int port = 25000;
+            final InetAddress address = InetAddress.getByName(host);
             socket = new Socket(address, port);
             
-            String msg="2";
+            final String msg="2";
             //Send the message to the server
             sendClientRequest(host,msg);
  
             //Get the return message from the server
         }
-        catch (Exception exception) 
+        catch (final Exception exception) 
         {
             exception.printStackTrace();
         }
@@ -98,7 +93,7 @@ public class Client
             {
                 socket.close();
             }
-            catch(Exception e)
+            catch(final Exception e)
             {
                 e.printStackTrace();
             }

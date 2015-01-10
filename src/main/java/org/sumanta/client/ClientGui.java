@@ -49,7 +49,7 @@ public class ClientGui {
 		text.addActionListener(new ActionListener() {
 			
 			@Override
-			public void actionPerformed(ActionEvent e) {
+			public void actionPerformed(final ActionEvent e) {
 				// TODO Auto-generated method stub
 				chatHistory.setText(chatHistory.getText()+"\n"
 						+getdate()+":me : "+text.getText());
@@ -71,14 +71,14 @@ public class ClientGui {
 	    connect.addActionListener(new  ActionListener() {
 			
 			@Override
-			public void actionPerformed(ActionEvent e) {
+			public void actionPerformed(final ActionEvent e) {
 				// TODO Auto-generated method stub
 				if(e.getSource()==connect)
 				{
 					if(!(serverAddress.getText().length()==0) && !(chatClient.getText().length()==0))
 					{
 						
-						boolean res=WebPing.ping(serverAddress.getText(), 25000);
+						final boolean res=WebPing.ping(serverAddress.getText(), 25000);
 						if(res)
 						{
 							chatHistory.setText(chatHistory.getText()+"\n"
@@ -89,7 +89,7 @@ public class ClientGui {
 							chatHistory.setEnabled(true);
 							text.setEnabled(true);
 							connect.setEnabled(false);
-							ClientListener listen=new ClientListener();
+							final ClientListener listen=new ClientListener();
 							listen.start();
 						}
 						else
@@ -127,16 +127,16 @@ public class ClientGui {
 	
 	public static String getdate()
 	{
-		DateFormat dateFormat = new SimpleDateFormat("yy/MM/dd HH:mm:ss");
+		final DateFormat dateFormat = new SimpleDateFormat("yy/MM/dd HH:mm:ss");
 		   //get current date time with Date()
-		   Date date = new Date();
+		   final Date date = new Date();
 		   return dateFormat.format(date);
 
 	}
 	
-	public static void main(String[] args) {
+	public static void main(final String[] args) {
 		// TODO Auto-generated method stub
-		ClientGui cg=new ClientGui();
+		new ClientGui();
 	}
 
 }

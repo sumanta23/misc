@@ -1,26 +1,24 @@
 package org.sumanta.common;
 
+import java.io.IOException;
 import java.net.InetAddress;
 import java.net.Socket;
 
 public class WebPing {
 	static InetAddress addr;
 	static boolean flag=false;
-   public static boolean ping(String address,int port) {
+   public static boolean ping(final String address,final int port) {
       try {
-         Socket sock = new Socket(address,port);
+         final Socket sock = new Socket(address,port);
          addr = sock.getInetAddress();
          System.out.println("Connected to " + addr);
          sock.close();
          flag=true;
          
-      } catch (java.io.IOException e) {
+      } catch (final IOException e) {
          System.out.println("Can't connect to " + addr);
          System.out.println(e);
       }
-	  finally
-	  {
-	      return flag;
-	  }
+	return flag;
    }
 }

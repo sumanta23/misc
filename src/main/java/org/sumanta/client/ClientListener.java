@@ -37,9 +37,9 @@ public class ClientListener extends Thread {
 			}
 			finally{
 				try {
-					if(br!=null) br.close();
-					if(isr!=null) isr.close();
-					if(is!=null) is.close();
+					if(br!=null){ br.close(); }
+					if(isr!=null){ isr.close(); }
+					if(is!=null){ is.close(); }
 				} catch (IOException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
