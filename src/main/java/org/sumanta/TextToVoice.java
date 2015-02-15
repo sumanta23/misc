@@ -32,5 +32,19 @@ public class TextToVoice {
 			e.printStackTrace();
 		}
 	}
+	
+	public void sayIt(String text){
+			Voice voice;
+			VoiceManager voiceManager = VoiceManager.getInstance();
+			voice = voiceManager.getVoice(VOICENAME);
+			voice.allocate();
+			voice.setRate(120);
+			voice.setPitch(100);
+			try {
+				voice.speak(text);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
 
 }
