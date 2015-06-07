@@ -17,9 +17,6 @@ import org.camunda.bpm.engine.RuntimeService;
 @Path("/callme")
 public class CallMe {
 
-  @Inject
-  private RuntimeService runtimeService;
-
   @Path("/exe/{id}")
   @POST
   @Produces(MediaType.TEXT_PLAIN)
