@@ -3,18 +3,18 @@ package org.sumanta.camunda.ejb;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-import javax.ejb.Stateless;
+import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Named;
 
 import org.camunda.bpm.engine.delegate.DelegateExecution;
 import org.camunda.bpm.engine.delegate.JavaDelegate;
 
 /**
- * This is an Ejb which is invoked form a Service task
+ * This is an deligator which is invoked form a Service task
  *
  */
 @Named("sshBean")
-@Stateless
+@ApplicationScoped
 public class EjbSshDelegate implements JavaDelegate {
 
   private final static Logger LOGGER = Logger.getLogger(EjbSshDelegate.class.getName());
@@ -23,12 +23,20 @@ public class EjbSshDelegate implements JavaDelegate {
 
     String command = execution.getVariables().get("1").toString();
     LOGGER.info("This is a @Stateless Ejb component invoked from a BPMN 2.0 process " + command);
+    if (execution.getVariable("chk") != null) {
+      LOGGER.info("chk is =" + execution.getVariable("chk"));
+    }
 
   }
 
+  public void getsysout(DelegateExecution var) {
+    LOGGER.log(Level.INFO, var.getBusinessKey());
 
-  public void sysout(String var) {
-    LOGGER.log(Level.INFO, var);
+    int i = Integer.parseInt(var.getBusinessKey());
+    if (i % 2 == 1) {
+      var.setVariable("chk", true);
+    } else {
+      var.setVariable("chk", false);
+    }
   }
-
 }

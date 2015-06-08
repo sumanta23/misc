@@ -20,8 +20,7 @@ public class CallMe {
   @Path("/exe/{id}")
   @POST
   @Produces(MediaType.TEXT_PLAIN)
-  public String exe(@PathParam("id") String id) {
-    System.out.println("trying to fuck " + id);
+  public String exe(@PathParam("id") int id) {
     String message = "";
     try {
       ProcessEngine processEngine1 = ProcessEngines.getDefaultProcessEngine();
@@ -32,7 +31,7 @@ public class CallMe {
 
       commands.put("1", "ls -all ~");
 
-      runtimeService1.startProcessInstanceByKey("sshexe", "sf", commands);
+      runtimeService1.startProcessInstanceByKey("sshexe", String.valueOf(id), commands);
     } catch (Exception exception) {
       message = exception.getMessage();
     }
