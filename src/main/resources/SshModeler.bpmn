@@ -23,8 +23,9 @@
     <bpmn2:sequenceFlow id="SequenceFlow_5" name="fail&#xA;" sourceRef="ExclusiveGateway_1" targetRef="ServiceTask_3">
       <bpmn2:conditionExpression xsi:type="bpmn2:tFormalExpression">${chk !=  true}</bpmn2:conditionExpression>
     </bpmn2:sequenceFlow>
-    <bpmn2:serviceTask id="ServiceTask_3" camunda:class="org.sumanta.camunda.ejb.EjbSshDelegate" name="log">
+    <bpmn2:serviceTask id="ServiceTask_3" camunda:expression="${sshBean.getsysout(execution)}" name="log">
       <bpmn2:incoming>SequenceFlow_5</bpmn2:incoming>
+      <bpmn2:incoming>SequenceFlow_20</bpmn2:incoming>
     </bpmn2:serviceTask>
     <bpmn2:endEvent id="EndEvent_2" name="End">
       <bpmn2:incoming>SequenceFlow_6</bpmn2:incoming>
@@ -32,7 +33,13 @@
     <bpmn2:sequenceFlow id="SequenceFlow_6" name="success" sourceRef="ExclusiveGateway_1" targetRef="EndEvent_2">
       <bpmn2:conditionExpression xsi:type="bpmn2:tFormalExpression">${chk ==  true}</bpmn2:conditionExpression>
     </bpmn2:sequenceFlow>
+    <bpmn2:boundaryEvent id="BoundaryEvent_1" name="samerror" attachedToRef="ServiceTask_1">
+      <bpmn2:outgoing>SequenceFlow_20</bpmn2:outgoing>
+      <bpmn2:errorEventDefinition id="samerror" errorRef="Error_1"/>
+    </bpmn2:boundaryEvent>
+    <bpmn2:sequenceFlow id="SequenceFlow_20" name="exception&#xA;&#xA;" sourceRef="BoundaryEvent_1" targetRef="ServiceTask_3"/>
   </bpmn2:process>
+  <bpmn2:error id="Error_1" errorCode="samerror"/>
   <bpmndi:BPMNDiagram id="BPMNDiagram_1">
     <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="sshexe">
       <bpmndi:BPMNShape id="_BPMNShape_StartEvent_5" bpmnElement="StartEvent_1">
@@ -85,6 +92,14 @@
       <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_6" bpmnElement="SequenceFlow_6" sourceElement="_BPMNShape_ExclusiveGateway_4" targetElement="_BPMNShape_EndEvent_7">
         <di:waypoint xsi:type="dc:Point" x="500.0" y="136.0"/>
         <di:waypoint xsi:type="dc:Point" x="550.0" y="136.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="_BPMNShape_BoundaryEvent_11" bpmnElement="BoundaryEvent_1">
+        <dc:Bounds height="36.0" width="36.0" x="175.0" y="158.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_20" bpmnElement="SequenceFlow_20" sourceElement="_BPMNShape_BoundaryEvent_11" targetElement="_BPMNShape_ServiceTask_24">
+        <di:waypoint xsi:type="dc:Point" x="193.0" y="194.0"/>
+        <di:waypoint xsi:type="dc:Point" x="193.0" y="256.0"/>
+        <di:waypoint xsi:type="dc:Point" x="557.0" y="256.0"/>
       </bpmndi:BPMNEdge>
     </bpmndi:BPMNPlane>
   </bpmndi:BPMNDiagram>

@@ -6,6 +6,7 @@ import java.util.logging.Logger;
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Named;
 
+import org.camunda.bpm.engine.delegate.BpmnError;
 import org.camunda.bpm.engine.delegate.DelegateExecution;
 import org.camunda.bpm.engine.delegate.JavaDelegate;
 
@@ -17,12 +18,19 @@ import org.camunda.bpm.engine.delegate.JavaDelegate;
 @ApplicationScoped
 public class EjbSshDelegate implements JavaDelegate {
 
+  public static int i = 0;
+
   private final static Logger LOGGER = Logger.getLogger(EjbSshDelegate.class.getName());
 
   public void execute(DelegateExecution execution) throws Exception {
 
     String command = execution.getVariables().get("1").toString();
     LOGGER.info("This is a @Stateless Ejb component invoked from a BPMN 2.0 process " + command);
+    i++;
+    if (i % 3 == 0) {
+      LOGGER.warning("samerror");
+      throw new BpmnError("samerror");
+    }
     if (execution.getVariable("chk") != null) {
       LOGGER.info("chk is =" + execution.getVariable("chk"));
     }

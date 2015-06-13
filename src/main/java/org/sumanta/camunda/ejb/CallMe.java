@@ -3,7 +3,6 @@ package org.sumanta.camunda.ejb;
 import java.util.HashMap;
 import java.util.Map;
 
-import javax.inject.Inject;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
