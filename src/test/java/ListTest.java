@@ -2,18 +2,23 @@ import static org.junit.Assert.*;
 
 import java.util.*;
 
+import org.junit.Rule;
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+
 /**
  * @author sam
- *
+ * 
  */
 public class ListTest {
 
     Logger logger = LoggerFactory.getLogger(ListTest.class);
 
+    @Rule
+    public RepeatRule repeatRule = new RepeatRule();
+    
     @Test
     public void testArrayList() {
         ArrayList<String> f = new ArrayList<String>();
@@ -26,8 +31,9 @@ public class ListTest {
     }
 
     @Test
+    @Repeat( times = 100 )
     public void testLinkedList() {
-        LinkedList<String> f = new LinkedList<>();
+        LinkedList<String> f = new LinkedList<String>();
         f.add("sumanta");
         f.add(null);
         f.add(null);
@@ -41,7 +47,7 @@ public class ListTest {
 
     @Test
     public void testVector() {
-        Vector<String> vector = new Vector<>();
+        Vector<String> vector = new Vector<String>();
         vector.add("sumantha");
         vector.add(null);
         vector.add(null);
