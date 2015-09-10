@@ -47,4 +47,12 @@ public class EjbSshDelegate implements JavaDelegate {
       var.setVariable("chk", false);
     }
   }
+  
+  public JavaDelegate getLogger(DelegateExecution var){
+	  LOGGER.info("in getlogger");
+	  
+	  JavaDelegate jd= new MagicDelegate();
+	  
+	  return jd;
+  }
 }
