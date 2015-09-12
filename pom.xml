@@ -7,8 +7,8 @@
 	<name>Collections</name>
 
 	<properties>
-		<version.junit>[4.11,)</version.junit>
-		<version.slf4j>[1.7.12,)</version.slf4j>
+		<version.junit>[4.11]</version.junit>
+		<version.slf4j>[1.7.12]</version.slf4j>
 		<version.maven-compiler-plugin>2.3.2</version.maven-compiler-plugin>
 		<version.JSE>1.7</version.JSE>
 	</properties>
