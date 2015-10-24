@@ -1,0 +1,10 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=Terminal
+Comment=Platform Independent Putty
+Exec=terminal
+Icon=/opt/sw/terminal/xterm.xpm
+Terminal=false
+Type=Application
+Categories=GNOME;Application;Development;
+StartupNotify=true
