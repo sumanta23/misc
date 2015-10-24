@@ -1,0 +1,8 @@
+#!/usr/bin/python
+
+# Open a file
+fo = open("/tmp/foo.txt", "r+")
+str=fo.read(10)
+print str
+# Close opend file
+fo.close()
