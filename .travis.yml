@@ -1,4 +1,5 @@
 language: python
 env:
   - DIR=Collections
+  - DIR=JpaTutorial
 script: python run.py $DIR
