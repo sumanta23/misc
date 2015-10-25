@@ -7,4 +7,8 @@ env:
   - DIR=TextPad
   - DIR=WEBdeploy
   - DIR=filedesc
+  - DIR=FileSync
+  - DIR=TextToVoice
+  - DIR=JavaReflect
+  - DIR=PDFgen
 script: python run.py $DIR
