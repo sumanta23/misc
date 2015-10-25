@@ -1,0 +1,4 @@
+language: python
+env:
+  - DIR=Collections
+script: python run.py $DIR
