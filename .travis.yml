@@ -11,4 +11,5 @@ env:
   - DIR=TextToVoice
   - DIR=JavaReflect
   - DIR=PDFgen
+  - DIR=Terminal
 script: python run.py $DIR
