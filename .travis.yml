@@ -11,4 +11,8 @@ env:
   - DIR=TextToVoice
   - DIR=JavaReflect
   - DIR=PDFgen
+  - DIR=Terminal
+  - DIR=ArithmeticParser
+  - DIR=StudentsHibernate
+  - DIR=jssh
 script: python run.py $DIR
