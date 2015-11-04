@@ -1,4 +1,7 @@
 language: python
+jdk:
+  - openjdk7
+  - oraclejdk7
 env:
   - DIR=Collections
   - DIR=JpaTutorial
