@@ -26,5 +26,3 @@ for line in lines:
         print value
         p = subprocess.call(value, shell=True)
 
-
-
