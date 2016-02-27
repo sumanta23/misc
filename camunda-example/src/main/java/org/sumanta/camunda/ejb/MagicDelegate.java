@@ -7,17 +7,15 @@ import org.camunda.bpm.engine.delegate.JavaDelegate;
 
 public class MagicDelegate implements JavaDelegate {
 
-	private final static Logger LOGGER = Logger.getLogger(MagicDelegate.class
-			.getName());
+    private final static Logger LOGGER = Logger.getLogger(MagicDelegate.class.getName());
 
-	public void execute(DelegateExecution execution) throws Exception {
+    public void execute(DelegateExecution execution) throws Exception {
 
-		String command = execution.getVariables().get("1").toString();
-		LOGGER.info("This is a  BPMN 2.0 process listed from callback JavaDelegate: "
-				+ command);
+        String command = execution.getVariables().get("1").toString();
+        LOGGER.info("This is a  BPMN 2.0 process listed from callback JavaDelegate: " + command);
 
-		LOGGER.info("from magic");
+        LOGGER.info("from magic");
 
-	}
+    }
 
 }

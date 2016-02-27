@@ -11,14 +11,14 @@ import org.sumanta.camunda.ejb.*;
 @ApplicationPath("/rest")
 public class ConfigApplication extends Application {
 
-  private Set<Object> singletons = new HashSet<Object>();
+    private Set<Object> singletons = new HashSet<Object>();
 
-  public ConfigApplication() {
-    singletons.add(new CallMe());
-  }
+    public ConfigApplication() {
+        singletons.add(new CallMe());
+    }
 
-  @Override
-  public Set<Object> getSingletons() {
-    return singletons;
-  }
+    @Override
+    public Set<Object> getSingletons() {
+        return singletons;
+    }
 }

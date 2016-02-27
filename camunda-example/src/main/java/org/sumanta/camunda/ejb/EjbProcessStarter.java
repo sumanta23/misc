@@ -10,8 +10,7 @@ import org.camunda.bpm.engine.ProcessEngines;
 import org.camunda.bpm.engine.RuntimeService;
 
 /**
- * Ejb which is automatically started when the application is deployed and
- * creates a new process instance
+ * Ejb which is automatically started when the application is deployed and creates a new process instance
  *
  */
 @Startup
@@ -19,16 +18,16 @@ import org.camunda.bpm.engine.RuntimeService;
 @DependsOn("SshModeler")
 public class EjbProcessStarter {
 
-  @Schedule(second = "*/5")
-  public void startProcessInstance() {
+    @Schedule(second = "*/5")
+    public void startProcessInstance() {
 
-    ProcessEngine processEngine = ProcessEngines.getDefaultProcessEngine();
+        ProcessEngine processEngine = ProcessEngines.getDefaultProcessEngine();
 
-    RuntimeService runtimeService = processEngine.getRuntimeService();
+        RuntimeService runtimeService = processEngine.getRuntimeService();
 
-    System.out.println("trying to fuck");
-    runtimeService.startProcessInstanceByKey("sshexe");
+        System.out.println("trying to start");
+        runtimeService.startProcessInstanceByKey("sshexe");
 
-  }
+    }
 
 }

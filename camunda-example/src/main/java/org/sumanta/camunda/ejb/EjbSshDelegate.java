@@ -18,41 +18,41 @@ import org.camunda.bpm.engine.delegate.JavaDelegate;
 @ApplicationScoped
 public class EjbSshDelegate implements JavaDelegate {
 
-  public static int i = 0;
+    public static int i = 0;
 
-  private final static Logger LOGGER = Logger.getLogger(EjbSshDelegate.class.getName());
+    private final static Logger LOGGER = Logger.getLogger(EjbSshDelegate.class.getName());
 
-  public void execute(DelegateExecution execution) throws Exception {
+    public void execute(DelegateExecution execution) throws Exception {
 
-    String command = execution.getVariables().get("1").toString();
-    LOGGER.info("This is a @Stateless Ejb component invoked from a BPMN 2.0 process " + command);
-    i++;
-    if (i % 3 == 0) {
-      LOGGER.warning("samerror");
-      throw new BpmnError("samerror");
+        String command = execution.getVariables().get("1").toString();
+        LOGGER.info("This is a @Stateless Ejb component invoked from a BPMN 2.0 process " + command);
+        i++;
+        if (i % 3 == 0) {
+            LOGGER.warning("samerror");
+            throw new BpmnError("samerror");
+        }
+        if (execution.getVariable("chk") != null) {
+            LOGGER.info("chk is =" + execution.getVariable("chk"));
+        }
+
     }
-    if (execution.getVariable("chk") != null) {
-      LOGGER.info("chk is =" + execution.getVariable("chk"));
+
+    public void getsysout(DelegateExecution var) {
+        LOGGER.log(Level.INFO, var.getProcessBusinessKey());
+
+        int i = Integer.parseInt(var.getProcessBusinessKey());
+        if (i % 2 == 1) {
+            var.setVariable("chk", true);
+        } else {
+            var.setVariable("chk", false);
+        }
     }
 
-  }
+    public JavaDelegate getLogger(DelegateExecution var) {
+        LOGGER.info("in getlogger");
 
-  public void getsysout(DelegateExecution var) {
-    LOGGER.log(Level.INFO, var.getBusinessKey());
+        JavaDelegate jd = new MagicDelegate();
 
-    int i = Integer.parseInt(var.getBusinessKey());
-    if (i % 2 == 1) {
-      var.setVariable("chk", true);
-    } else {
-      var.setVariable("chk", false);
+        return jd;
     }
-  }
-  
-  public JavaDelegate getLogger(DelegateExecution var){
-	  LOGGER.info("in getlogger");
-	  
-	  JavaDelegate jd= new MagicDelegate();
-	  
-	  return jd;
-  }
 }

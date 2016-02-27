@@ -16,24 +16,24 @@ import org.camunda.bpm.engine.RuntimeService;
 @Path("/callme")
 public class CallMe {
 
-  @Path("/exe/{id}")
-  @POST
-  @Produces(MediaType.TEXT_PLAIN)
-  public String exe(@PathParam("id") int id) {
-    String message = "";
-    try {
-      ProcessEngine processEngine1 = ProcessEngines.getDefaultProcessEngine();
+    @Path("/exe/{id}")
+    @POST
+    @Produces(MediaType.TEXT_PLAIN)
+    public String exe(@PathParam("id") int id) {
+        String message = "";
+        try {
+            ProcessEngine processEngine1 = ProcessEngines.getDefaultProcessEngine();
 
-      RuntimeService runtimeService1 = processEngine1.getRuntimeService();
+            RuntimeService runtimeService1 = processEngine1.getRuntimeService();
 
-      Map<String, Object> commands = new HashMap<String, Object>();
+            Map<String, Object> commands = new HashMap<String, Object>();
 
-      commands.put("1", "ls -all ~");
+            commands.put("1", "ls -all ~");
 
-      runtimeService1.startProcessInstanceByKey("sshexe", String.valueOf(id), commands);
-    } catch (Exception exception) {
-      message = exception.getMessage();
+            runtimeService1.startProcessInstanceByKey("sshexe", String.valueOf(id), commands);
+        } catch (Exception exception) {
+            message = exception.getMessage();
+        }
+        return message;
     }
-    return message;
-  }
 }
